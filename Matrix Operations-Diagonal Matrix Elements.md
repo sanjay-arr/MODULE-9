@@ -1,58 +1,52 @@
-# Matrix Operations-Diagonal Matrix Elements Printer 🧮
+# 🧮 List Comprehension:Transpose of Matrix 
 NAME : DHANUCIYA .J
 ---
 REG NO : 212224020010
 ---
-This Python program reads a matrix of any size from the user and prints **only the diagonal elements**, leaving other elements blank in the output.
+## 🎯 AIM:
+To write a Python program to compute the **transpose** of a matrix using **list comprehension**.
 
-## 📌 Aim
+---
 
-To write a Python program that prints only the diagonal elements of a given matrix.
+## 🧠 ALGORITHM:
 
-## 🧠 Algorithm
+1. **Start**
+2. Create variables `r` and `c` to represent the number of rows and columns of the matrix.
+3. Get the values of `r` and `c` from the user.
+4. Define a function `create(r, c)` to create the matrix by reading the elements from the user.
+5. Use **list comprehension** to calculate the transpose of the matrix.
+6. Print the transposed matrix.
+7. **Stop**
 
-1. Read the number of rows and columns from the user.
-2. Initialize an empty matrix of size `rows × columns`.
-3. Populate the matrix with user input.
-4. Display the full matrix.
-5. Iterate through the matrix and:
-   - If `i == j`, print the element (main diagonal).
-   - Else, print a blank space.
-6. Print a newline after each row.
+---
 
-## 🖥️ Program
+## 💻 PROGRAM:
 ~~~
-def read_matrix():
-    rows = int(input("Enter number of rows: "))
-    cols = int(input("Enter number of columns: "))
-    print(f"Enter elements row-wise ({rows} x {cols}):")
-    matrix = []
-    for i in range(rows):
-        row = list(map(int, input(f"Row {i + 1}: ").split()))
-        if len(row) != cols:
-            print("❌ Invalid number of columns. Please restart.")
-            exit()
-        matrix.append(row)
-    return matrix
-def print_diagonals(matrix):
-    rows = len(matrix)
-    cols = len(matrix[0])
-    print("\nDiagonal Elements:")
-    for i in range(rows):
-        for j in range(cols):
-            if i == j:
-                print(f"{matrix[i][j]:>4}", end=' ')
-            else:
-                print("    ", end=' ')
-        print()
-matrix = read_matrix()
-print("\nOriginal Matrix:")
+def transpose_matrix(matrix):
+    return [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+
+transposed_matrix = transpose_matrix(matrix)
+
+print("Original Matrix:")
 for row in matrix:
     print(row)
-print_diagonals(matrix)
+print("\nTransposed Matrix:")
+for row in transposed_matrix:
+    print(row)
 ~~~
-### Output:
-![image](https://github.com/user-attachments/assets/e8bc2227-97a5-420a-92e1-a7c00a28f8f8)
+## OUTPUT:
+~~~
+[
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+~~~
+## RESULT:
+The program was successful.
 
-## Result
-Thus the program has been executed successfully.
